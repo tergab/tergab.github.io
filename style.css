@@ -1,0 +1,23 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav a {
+    color: #00ffcc;
+    text-decoration: none;
+}
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaaaaa;
+}
