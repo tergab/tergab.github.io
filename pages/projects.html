@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Terje Gabrielsen</title>
+  <meta name="description" content="Programming projects and technical work by Terje Gabrielsen." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(79,195,247,0.08);
+    }
+    .project-card.hidden { display: none; }
+    .project-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .project-card.featured {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+      }
+    }
+    .project-card.featured .project-name { font-size: 1.4rem; }
+    .project-card.featured .project-desc { font-size: 0.93rem; }
+    .project-status {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+    .project-status::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+    .project-status.active { background: rgba(40,202,66,0.12); color: #28ca42; border: 1px solid rgba(40,202,66,0.3); }
+    .project-status.active::before { background: #28ca42; }
+    .project-status.wip { background: rgba(232,168,124,0.12); color: var(--accent3); border: 1px solid rgba(232,168,124,0.3); }
+    .project-status.wip::before { background: var(--accent3); }
+    .project-status.archived { background: rgba(122,132,153,0.12); color: var(--text-muted); border: 1px solid rgba(122,132,153,0.2); }
+    .project-status.archived::before { background: var(--text-muted); }
+    .project-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+    .github-link:hover { border-color: var(--border-hi); color: var(--text); }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled">
+  <a href="../index.html" class="nav-logo"><span>TG</span><span class="dot">.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="knowledge.html">Knowledge</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile">
+  <a href="../index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="knowledge.html">Knowledge</a>
+  <a href="writing.html">Writing</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-label">Work</div>
+  <h1>Projects</h1>
+  <p>Tools, experiments, and things I've built across automation, systems, data, and the web. Mostly Python and JavaScript.</p>
+</div>
+
+<div class="divider"></div>
+
+<section class="section">
+
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="python">Python</button>
+    <button class="filter-btn" data-filter="js">JavaScript</button>
+    <button class="filter-btn" data-filter="tools">Tools</button>
+    <button class="filter-btn" data-filter="data">Data</button>
+    <button class="filter-btn" data-filter="systems">Systems</button>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- DFIR Notebook — Featured -->
+    <div class="project-card featured reveal" data-tags="python tools">
+      <div>
+        <div class="project-icon">🧰</div>
+        <div class="project-meta-row">
+          <span class="project-status active">Active</span>
+        </div>
+        <div class="project-lang">Python · HTML · JavaScript</div>
+        <div class="project-name">DFIR Case Notebook</div>
+      </div>
+      <div>
+        <p class="project-desc">
+          A browser-based case management application purpose-built for digital investigations. Features include a full evidence registry with hash tracking, lead management with status tracking, timeline visualization, and structured report export. The interface runs entirely client-side with no backend dependency, making it usable in air-gapped environments.
+        </p>
+        <div style="margin-top:1rem;" class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">HTML/CSS/JS</span>
+          <span class="project-tag">JSON</span>
+          <span class="project-tag">LocalStorage</span>
+        </div>
+        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;">
+          <a href="https://github.com/tergab" target="_blank" rel="noopener" class="github-link">⌥ GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Threat Intel Dashboard -->
+    <div class="project-card reveal reveal-delay-1" data-tags="js data">
+      <div class="project-icon">🌐</div>
+      <div class="project-status active">Active</div>
+      <div class="project-lang">JavaScript · D3.js</div>
+      <div class="project-name">Threat Intel Dashboard</div>
+      <p class="project-desc">World map dashboard for threat intelligence monitoring. D3.js-driven geographic visualization with live feed integration, country-level incident heatmaps, and filtering by incident category.</p>
+      <div class="project-footer">
+        <div class="project-tags">
+          <span class="project-tag">D3.js</span>
+          <span class="project-tag">REST APIs</span>
+          <span class="project-tag">SVG</span>
+          <span class="project-tag">CSS Animations</span>
+        </div>
+        <a href="https://github.com/tergab" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- Selenium Extractor -->
+    <div class="project-card reveal reveal-delay-2" data-tags="python tools data">
+      <div class="project-icon">🤖</div>
+      <div class="project-status active">Active</div>
+      <div class="project-lang">Python · Selenium</div>
+      <div class="project-name">Social Media Extractor</div>
+      <p class="project-desc">Automated extraction tool for social media threads. Handles authentication flows, rate limiting, scroll pagination, and outputs structured CSV/JSON with full metadata. Configurable via YAML.</p>
+      <div class="project-footer">
+        <div class="project-tags">
+          <span class="project-tag">Selenium</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">CSV/JSON</span>
+        </div>
+        <a href="https://github.com/tergab" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- DFIR Tools Portfolio -->
+    <div class="project-card reveal reveal-delay-1" data-tags="python tools systems">
+      <div class="project-icon">🔬</div>
+      <div class="project-status active">Active</div>
+      <div class="project-lang">Python · Shell</div>
+      <div class="project-name">DFIR Tools Portfolio</div>
+      <p class="project-desc">An 8-project collection of forensic utility scripts: hash verification, metadata extraction, log parsing, artifact timeline builders, and report generators. Built as a structured portfolio of repeatable CLI tools.</p>
+      <div class="project-footer">
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">CLI</span>
+          <span class="project-tag">Hashing</span>
+        </div>
+        <a href="https://github.com/tergab" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- Regex Toolkit -->
+    <div class="project-card reveal reveal-delay-2" data-tags="tools python">
+      <div class="project-icon">🔍</div>
+      <div class="project-status wip">WIP</div>
+      <div class="project-lang">Python · Web</div>
+      <div class="project-name">Forensic Regex Toolkit</div>
+      <p class="project-desc">Curated regex pattern library for digital evidence text searching — phone numbers, email addresses, URLs, lock codes, timestamps, identifiers. Browser-based tester with copy-to-clipboard and Notepad++ syntax export.</p>
+      <div class="project-footer">
+        <div class="project-tags">
+          <span class="project-tag">Regex</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">JavaScript</span>
+        </div>
+        <a href="https://github.com/tergab" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- Network Analyzer -->
+    <div class="project-card reveal reveal-delay-3" data-tags="python systems data">
+      <div class="project-icon">📡</div>
+      <div class="project-status wip">WIP</div>
+      <div class="project-lang">Python · Scapy</div>
+      <div class="project-name">Packet Analyzer CLI</div>
+      <p class="project-desc">Command-line packet capture analysis tool. Parses pcap files, extracts protocol summaries, highlights anomalies, and outputs structured reports. Built on top of Scapy with a clean CLI interface.</p>
+      <div class="project-footer">
+        <div class="project-tags">
+          <span class="project-tag">Scapy</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">pcap</span>
+        </div>
+        <a href="https://github.com/tergab" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- GitHub Profile -->
+    <div class="project-card reveal" data-tags="all">
+      <div class="project-icon">⌥</div>
+      <div class="project-lang">GitHub</div>
+      <div class="project-name">More on GitHub</div>
+      <p class="project-desc">Additional scripts, experiments, and smaller utilities live on GitHub. Everything from one-off scripts to more fleshed-out tools.</p>
+      <div class="project-footer">
+        <div class="project-tags"></div>
+        <a href="https://github.com/tergab" target="_blank" rel="noopener" class="project-link">tergab →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-copy">© 2025 <span>Terje Gabrielsen</span> · Tromsø, Norway</div>
+  <div class="footer-links">
+    <a href="https://github.com/tergab" target="_blank" rel="noopener">GitHub</a>
+    <a href="knowledge.html">Knowledge</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card[data-tags]');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const tags = card.dataset.tags;
+        card.classList.toggle('hidden', filter !== 'all' && !tags.includes(filter));
+      });
+    });
+  });
+</script>
+</body>
+</html>

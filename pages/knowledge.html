@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knowledge — Terje Gabrielsen</title>
+  <meta name="description" content="Technical knowledge areas and deep dives by Terje Gabrielsen." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .knowledge-section { margin-bottom: 4rem; }
+    .knowledge-section-title {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .knowledge-section-title span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+    .knowledge-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .knowledge-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .knowledge-item:hover { border-color: var(--border-hi); background: var(--bg3); }
+    .ki-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    .ki-title {
+      font-family: var(--font-head);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .ki-level {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      white-space: nowrap;
+      margin-left: 0.5rem;
+      flex-shrink: 0;
+    }
+    .ki-level.deep { border-color: rgba(79,195,247,0.3); color: var(--accent); }
+    .ki-level.solid { border-color: rgba(129,200,190,0.3); color: var(--accent2); }
+    .ki-level.good { border-color: rgba(122,132,153,0.2); color: var(--text-muted); }
+    .ki-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .ki-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.9rem;
+    }
+    .ki-topic {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+    }
+    .legend {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .legend-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .stack-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .stack-table th {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .stack-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      vertical-align: top;
+    }
+    .stack-table tr:last-child td { border-bottom: none; }
+    .stack-table tr:hover td { background: var(--bg2); }
+    .stack-table td:first-child {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .stack-table td:nth-child(2) { color: var(--text-muted); font-size: 0.83rem; }
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .proficiency {
+      display: flex;
+      gap: 3px;
+    }
+    .pip {
+      width: 14px; height: 4px;
+      border-radius: 2px;
+      background: var(--surface);
+    }
+    .pip.filled { background: var(--accent); }
+    .pip.filled.mid { background: var(--accent2); }
+    .pip.filled.low { background: var(--text-dim); }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled">
+  <a href="../index.html" class="nav-logo"><span>TG</span><span class="dot">.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="knowledge.html" class="active">Knowledge</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="../index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="knowledge.html">Knowledge</a>
+  <a href="writing.html">Writing</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-label">Expertise</div>
+  <h1>Knowledge base</h1>
+  <p>Areas where I've gone past the surface — built things, broken things, and actually understand the internals.</p>
+</div>
+
+<div class="divider"></div>
+
+<section class="section">
+
+  <div class="legend reveal">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Deep — internals level</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div> Solid — production use</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--text-dim)"></div> Good — comfortable working knowledge</div>
+  </div>
+
+  <!-- DIGITAL DEVICES & SYSTEMS -->
+  <div class="knowledge-section reveal">
+    <div class="knowledge-section-title">📱 Digital Devices &amp; Platforms <span>// mobile · desktop · OS internals</span></div>
+    <div class="knowledge-items">
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">iOS Internals</div>
+          <span class="ki-level deep">Deep</span>
+        </div>
+        <p class="ki-desc">File system structure, data persistence, keychain, app sandboxing, backup formats, and how data survives power cycles, resets, and updates.</p>
+        <div class="ki-topics">
+          <span class="ki-topic">APFS</span><span class="ki-topic">Keychain</span><span class="ki-topic">Sysdiagnose</span><span class="ki-topic">Backups</span><span class="ki-topic">Plist</span>
+        </div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">Android Internals</div>
+          <span class="ki-level solid">Solid</span>
+        </div>
+        <p class="ki-desc">Linux-based file hierarchy, SQLite databases for app data, ADB access patterns, storage partitioning, and APK structure.</p>
+        <div class="ki-topics">
+          <span class="ki-topic">ADB</span><span class="ki-topic">SQLite</span><span class="ki-topic">ext4</span><span class="ki-topic">APK</span><span class="ki-topic">logcat</span>
+        </div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">Windows Internals</div>
+          <span class="ki-level solid">Solid</span>
+        </div>
+        <p class="ki-desc">Registry structure, NTFS file system, VSS, prefetch, event logs, and the artifacts left behind by user and system activity.</p>
+        <div class="ki-topics">
+          <span class="ki-topic">Registry</span><span class="ki-topic">NTFS</span><span class="ki-topic">Event Logs</span><span class="ki-topic">Prefetch</span><span class="ki-topic">VSS</span>
+        </div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">Linux Systems</div>
+          <span class="ki-level deep">Deep</span>
+        </div>
+        <p class="ki-desc">Filesystem hierarchy, process management, /proc, /sys, shell scripting, log management, user account structures, and live system state.</p>
+        <div class="ki-topics">
+          <span class="ki-topic">ext4</span><span class="ki-topic">bash</span><span class="ki-topic">/proc</span><span class="ki-topic">systemd</span><span class="ki-topic">auditd</span>
+        </div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">Social Media Platforms</div>
+          <span class="ki-level solid">Solid</span>
+        </div>
+        <p class="ki-desc">Data structures of major platforms, API behaviours, metadata in exports, what persists after deletion, and how platforms handle identity.</p>
+        <div class="ki-topics">
+          <span class="ki-topic">Graph API</span><span class="ki-topic">Data exports</span><span class="ki-topic">Metadata</span><span class="ki-topic">OSINT</span>
+        </div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">Encryption &amp; Cryptography</div>
+          <span class="ki-level solid">Solid</span>
+        </div>
+        <p class="ki-desc">AES, RSA, hash functions, full-disk encryption internals (VeraCrypt, BitLocker, FileVault), key derivation, and entropy concepts.</p>
+        <div class="ki-topics">
+          <span class="ki-topic">AES</span><span class="ki-topic">RSA</span><span class="ki-topic">VeraCrypt</span><span class="ki-topic">BitLocker</span><span class="ki-topic">PBKDF2</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DEVELOPMENT -->
+  <div class="knowledge-section reveal">
+    <div class="knowledge-section-title">💻 Development &amp; Programming <span>// languages · tools · frameworks</span></div>
+
+    <div class="table-wrap">
+      <table class="stack-table">
+        <thead>
+          <tr>
+            <th>Technology</th>
+            <th>What I use it for</th>
+            <th>Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Python</td>
+            <td>Automation, data parsing, CLI tools, scripting, web scraping, APIs</td>
+            <td><div class="proficiency"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled mid"></div></div></td>
+          </tr>
+          <tr>
+            <td>JavaScript</td>
+            <td>Web apps, data visualization, browser tools, Node.js scripting</td>
+            <td><div class="proficiency"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled mid"></div><div class="pip"></div></div></td>
+          </tr>
+          <tr>
+            <td>PowerShell</td>
+            <td>Windows automation, Active Directory, system administration scripting</td>
+            <td><div class="proficiency"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled mid"></div><div class="pip"></div></div></td>
+          </tr>
+          <tr>
+            <td>SQL</td>
+            <td>SQLite analysis, database queries, data extraction from app databases</td>
+            <td><div class="proficiency"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled mid"></div><div class="pip"></div></div></td>
+          </tr>
+          <tr>
+            <td>Bash / Shell</td>
+            <td>Linux scripting, pipeline automation, system tooling</td>
+            <td><div class="proficiency"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled mid"></div><div class="pip"></div></div></td>
+          </tr>
+          <tr>
+            <td>HTML / CSS</td>
+            <td>Web interfaces, reports, dashboards, documentation sites</td>
+            <td><div class="proficiency"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div></div></td>
+          </tr>
+          <tr>
+            <td>Git / GitHub</td>
+            <td>Version control, project management, open-source contributions</td>
+            <td><div class="proficiency"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled mid"></div><div class="pip"></div></div></td>
+          </tr>
+          <tr>
+            <td>Docker</td>
+            <td>Containerizing tools, isolated environments, deployment</td>
+            <td><div class="proficiency"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled low"></div><div class="pip"></div><div class="pip"></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NETWORKING -->
+  <div class="knowledge-section reveal">
+    <div class="knowledge-section-title">🔌 Networking &amp; Infrastructure <span>// protocols · cloud · architecture</span></div>
+    <div class="knowledge-items">
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">TCP/IP &amp; Protocols</div>
+          <span class="ki-level deep">Deep</span>
+        </div>
+        <p class="ki-desc">OSI model, TCP handshake, UDP, DNS resolution, HTTP/HTTPS internals, TLS, DHCP, ARP. Comfortable reading packet captures and understanding protocol behaviour.</p>
+        <div class="ki-topics"><span class="ki-topic">Wireshark</span><span class="ki-topic">pcap</span><span class="ki-topic">DNS</span><span class="ki-topic">TLS</span></div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">Cloud Platforms</div>
+          <span class="ki-level solid">Solid</span>
+        </div>
+        <p class="ki-desc">Azure (primary), AWS, and GCP. Identity management, storage services, compute, networking, and security posture across cloud environments.</p>
+        <div class="ki-topics"><span class="ki-topic">Azure AD</span><span class="ki-topic">S3</span><span class="ki-topic">IAM</span><span class="ki-topic">VNets</span></div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header">
+          <div class="ki-title">Security Architecture</div>
+          <span class="ki-level solid">Solid</span>
+        </div>
+        <p class="ki-desc">Firewalls, VPNs, intrusion detection, network segmentation, identity and access management, and security monitoring.</p>
+        <div class="ki-topics"><span class="ki-topic">Firewalls</span><span class="ki-topic">IDS/IPS</span><span class="ki-topic">SIEM</span><span class="ki-topic">Zero Trust</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="knowledge-section reveal">
+    <div class="knowledge-section-title">🛠 Tools &amp; Platforms <span>// forensic · productivity · dev tooling</span></div>
+    <div class="knowledge-items">
+
+      <div class="knowledge-item">
+        <div class="ki-header"><div class="ki-title">Autopsy / Sleuth Kit</div><span class="ki-level solid">Solid</span></div>
+        <p class="ki-desc">Disk imaging, evidence analysis, keyword search, timeline analysis, and report generation. Both GUI and CLI workflows.</p>
+        <div class="ki-topics"><span class="ki-topic">Autopsy</span><span class="ki-topic">TSK</span><span class="ki-topic">E01</span><span class="ki-topic">dd</span></div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header"><div class="ki-title">VS Code + Dev Stack</div><span class="ki-level solid">Solid</span></div>
+        <p class="ki-desc">Primary editor with Python, JS, shell scripting extensions. Integrated terminals, debuggers, and Git workflows.</p>
+        <div class="ki-topics"><span class="ki-topic">VSCode</span><span class="ki-topic">Jupyter</span><span class="ki-topic">Postman</span><span class="ki-topic">GitHub</span></div>
+      </div>
+
+      <div class="knowledge-item">
+        <div class="ki-header"><div class="ki-title">Microsoft 365 / Azure</div><span class="ki-level deep">Deep</span></div>
+        <p class="ki-desc">Nearly two decades of hands-on experience — from early Exchange to modern Azure AD, Intune, Teams, SharePoint administration.</p>
+        <div class="ki-topics"><span class="ki-topic">Azure AD</span><span class="ki-topic">Exchange</span><span class="ki-topic">Intune</span><span class="ki-topic">Teams</span></div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="footer-copy">© 2025 <span>Terje Gabrielsen</span> · Tromsø, Norway</div>
+  <div class="footer-links">
+    <a href="https://github.com/tergab" target="_blank" rel="noopener">GitHub</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

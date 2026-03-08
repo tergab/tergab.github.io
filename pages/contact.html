@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Terje Gabrielsen</title>
+  <meta name="description" content="Get in touch with Terje Gabrielsen." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .contact-wrapper {
+      max-width: 900px;
+    }
+    .contact-intro {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 3.5rem;
+      max-width: 560px;
+    }
+    .contact-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .contact-main { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    .contact-link-group { margin-bottom: 2rem; }
+    .contact-link-group-title {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    .contact-availability {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .avail-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .avail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+    .avail-row:last-child { border-bottom: none; }
+    .avail-label { color: var(--text-muted); }
+    .avail-val { font-family: var(--font-mono); font-size: 0.78rem; }
+    .avail-val.open { color: var(--accent2); }
+    .avail-val.selective { color: var(--accent); }
+    .avail-val.closed { color: var(--text-dim); }
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .form-note {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-dim);
+    }
+    .location-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+    .location-card-title {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    .location-line { display: flex; justify-content: space-between; color: var(--text-muted); padding: 0.3rem 0; }
+    .location-line span:last-child { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<nav class="nav scrolled">
+  <a href="../index.html" class="nav-logo"><span>TG</span><span class="dot">.</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="knowledge.html">Knowledge</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="contact.html" class="active nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="../index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="knowledge.html">Knowledge</a>
+  <a href="writing.html">Writing</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-label">Contact</div>
+  <h1>Get in touch</h1>
+</div>
+
+<div class="divider"></div>
+
+<section class="section contact-wrapper">
+  <p class="contact-intro reveal">
+    I'm always open to interesting conversations about digital systems, programming projects, or technical collaboration. If you're working on something interesting or want to exchange knowledge — reach out.
+  </p>
+
+  <div class="contact-main">
+
+    <!-- FORM -->
+    <div class="reveal">
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject</label>
+          <input class="form-input" type="text" id="subject" name="subject" placeholder="What's this about?" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="What's on your mind?" required></textarea>
+        </div>
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <span class="form-note">// I usually reply within 1–2 days</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- SIDEBAR INFO -->
+    <div class="reveal reveal-delay-2">
+      <div class="contact-link-group">
+        <div class="contact-link-group-title">// find me online</div>
+        <div class="contact-links">
+          <a href="https://github.com/tergab" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">⌥</div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-val">github.com/tergab</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/terjegabrielsen" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">in</div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-val">terjegabrielsen</div>
+            </div>
+          </a>
+          <a href="mailto:hi@tergab.no" class="contact-link">
+            <div class="contact-link-icon">@</div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-val">hi@tergab.no</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-availability">
+        <div class="avail-title">// availability</div>
+        <div class="avail-row">
+          <span class="avail-label">Technical discussions</span>
+          <span class="avail-val open">Open</span>
+        </div>
+        <div class="avail-row">
+          <span class="avail-label">Knowledge sharing</span>
+          <span class="avail-val open">Open</span>
+        </div>
+        <div class="avail-row">
+          <span class="avail-label">Collaboration</span>
+          <span class="avail-val selective">Selective</span>
+        </div>
+        <div class="avail-row">
+          <span class="avail-label">Contract work</span>
+          <span class="avail-val closed">Closed</span>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <div class="location-card-title">// location</div>
+        <div class="location-line"><span>City</span><span>Tromsø</span></div>
+        <div class="location-line"><span>Country</span><span>Norway</span></div>
+        <div class="location-line"><span>Timezone</span><span>CET / UTC+1</span></div>
+        <div class="location-line"><span>Language</span><span>NO / EN</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-copy">© 2025 <span>Terje Gabrielsen</span> · Tromsø, Norway</div>
+  <div class="footer-links">
+    <a href="https://github.com/tergab" target="_blank" rel="noopener">GitHub</a>
+    <a href="projects.html">Projects</a>
+    <a href="writing.html">Writing</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
