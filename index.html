@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terje Gabrielsen</title>
+  <meta name="description" content="Personal site of Terje Gabrielsen — developer, systems thinker, and digital systems enthusiast based in Tromsø, Norway." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d0f14'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' fill='%234fc3f7' font-size='18' font-family='monospace' font-weight='bold'>TG</text></svg>" />
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────── -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span>TG</span><span class="dot">.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="pages/projects.html">Projects</a></li>
+    <li><a href="pages/knowledge.html">Knowledge</a></li>
+    <li><a href="pages/writing.html">Writing</a></li>
+    <li><a href="pages/contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="pages/projects.html">Projects</a>
+  <a href="pages/knowledge.html">Knowledge</a>
+  <a href="pages/writing.html">Writing</a>
+  <a href="pages/contact.html">Contact</a>
+</div>
+
+<!-- ── HERO ──────────────────────────────────── -->
+<section class="hero" id="top">
+  <canvas class="hero-canvas" id="hero-canvas"></canvas>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Based in Tromsø, Norway</div>
+
+    <h1 class="hero-title">
+      <span class="line">Terje</span>
+      <span class="line line-accent">Gabrielsen</span>
+      <span class="line line-dim">— developer &amp; systems thinker</span>
+    </h1>
+
+    <p class="hero-tagline">
+      Building tools, exploring digital systems, and writing about
+      <span id="typed-text" style="color:var(--accent)"></span><span class="cursor"></span>
+      — with nearly two decades of hands-on experience in tech.
+    </p>
+
+    <div class="hero-actions">
+      <a href="pages/projects.html" class="btn btn-primary">View projects →</a>
+      <a href="pages/contact.html" class="btn btn-ghost">Get in touch</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-val">18<span>+</span></div>
+        <div class="stat-label">Years in tech</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">∞</div>
+        <div class="stat-label">Curiosity</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">NO</div>
+        <div class="stat-label">Tromsø, Norway</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-mouse"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────── -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-card">
+        <div class="about-card-label">// profile</div>
+        <div class="about-card-title">Terje Gabrielsen</div>
+        <div class="about-card-sub">Tromsø, Norway · UTC+1</div>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7;">
+          Developer with deep roots in infrastructure, automation, and system architecture.
+          Drawn to understanding how digital things actually work — at the protocol, filesystem, and application layer.
+        </p>
+        <div class="tag-cloud">
+          <span class="tag accent">Python</span>
+          <span class="tag accent">JavaScript</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Open Source</span>
+          <span class="tag">SQL</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Azure</span>
+          <span class="tag">PowerShell</span>
+        </div>
+      </div>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">bash — tergab@NO</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">~$</span><span class="cmd"> whoami</span></div>
+          <div class="terminal-line out">terje_gabrielsen</div>
+          <div class="terminal-line"><span class="prompt">~$</span><span class="cmd"> uname -r</span></div>
+          <div class="terminal-line out">6.8.0-tergab-dev</div>
+          <div class="terminal-line"><span class="prompt">~$</span><span class="cmd"> cat interests.txt</span></div>
+          <div class="terminal-line out hi">systems · forensics · dev · F1 · hiking</div>
+          <div class="terminal-line"><span class="prompt">~$</span><span class="cmd"> <span class="cursor"></span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text reveal reveal-delay-2">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Building things.<br>Understanding systems.</h2>
+      <p>
+        I've spent close to two decades working across the full spectrum of technology — from infrastructure and cloud platforms to software development and systems integration. That breadth gives me a perspective that's hard to get from staying in one lane.
+      </p>
+      <p>
+        These days I'm especially interested in <strong>Python tooling</strong>, <strong>mobile and desktop device internals</strong>, and the kind of low-level system knowledge that most developers never need — but that becomes fascinating once you start digging.
+      </p>
+      <p>
+        When I'm not at a keyboard, I'm usually somewhere on the trails outside Tromsø, watching F1, or convincing myself my next side project will be the last one.
+      </p>
+      <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="pages/projects.html" class="btn btn-ghost btn-sm">Projects →</a>
+        <a href="pages/knowledge.html" class="btn btn-ghost btn-sm">Knowledge →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── FEATURED PROJECTS ──────────────────────── -->
+<section class="section" id="projects">
+  <div class="section-label reveal">Featured work</div>
+  <h2 class="section-title reveal">Things I've built</h2>
+  <p class="section-subtitle reveal">A selection of projects across automation, tooling, data, and systems exploration.</p>
+
+  <div class="projects-grid">
+
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-icon">🧰</div>
+      <div class="project-lang">Python · CLI</div>
+      <div class="project-name">DFIR Case Notebook</div>
+      <p class="project-desc">Browser-based case management application for digital investigations. Evidence registry, lead tracking, and export to structured reports.</p>
+      <div class="project-footer">
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">HTML/JS</span>
+          <span class="project-tag">JSON</span>
+        </div>
+        <a href="pages/projects.html" class="project-link">View →</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-icon">🌐</div>
+      <div class="project-lang">JavaScript · D3.js</div>
+      <div class="project-name">Threat Intel Dashboard</div>
+      <p class="project-desc">Real-time world map dashboard for threat intelligence monitoring. Built with D3.js, visualizing incident data with geographic overlays.</p>
+      <div class="project-footer">
+        <div class="project-tags">
+          <span class="project-tag">D3.js</span>
+          <span class="project-tag">APIs</span>
+          <span class="project-tag">SVG</span>
+        </div>
+        <a href="pages/projects.html" class="project-link">View →</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-3">
+      <div class="project-icon">🤖</div>
+      <div class="project-lang">Python · Selenium</div>
+      <div class="project-name">Social Media Extractor</div>
+      <p class="project-desc">Automated extraction tool for social media conversation threads. Selenium-based with structured output, rate-limit handling, and export options.</p>
+      <div class="project-footer">
+        <div class="project-tags">
+          <span class="project-tag">Selenium</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">CSV</span>
+        </div>
+        <a href="pages/projects.html" class="project-link">View →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:2.5rem;text-align:center;" class="reveal">
+    <a href="pages/projects.html" class="btn btn-ghost">All projects →</a>
+  </div>
+</section>
+
+<div class="section-full">
+  <div class="section-full-inner">
+    <div class="section-label reveal">Deep knowledge</div>
+    <h2 class="section-title reveal">What I know well</h2>
+    <p class="section-subtitle reveal">Areas where I've gone past the surface and actually understand the internals.</p>
+
+    <div class="knowledge-grid">
+      <div class="knowledge-card reveal reveal-delay-1">
+        <div class="knowledge-icon">📱</div>
+        <div class="knowledge-title">Mobile Device Internals</div>
+        <p class="knowledge-desc">iOS and Android file systems, data storage patterns, app sandboxing, keychain, and how data persists across device states.</p>
+      </div>
+      <div class="knowledge-card reveal reveal-delay-2">
+        <div class="knowledge-icon">🐍</div>
+        <div class="knowledge-title">Python Development</div>
+        <p class="knowledge-desc">Scripting, automation, CLI tooling, web scraping, data parsing, and building small applications — practical Python for real problems.</p>
+      </div>
+      <div class="knowledge-card reveal reveal-delay-3">
+        <div class="knowledge-icon">🔌</div>
+        <div class="knowledge-title">Networking &amp; Protocols</div>
+        <p class="knowledge-desc">TCP/IP, DNS, HTTP internals, IPv4/IPv6, packet analysis, VPNs, firewalls — the real mechanics behind network communication.</p>
+      </div>
+      <div class="knowledge-card reveal reveal-delay-4">
+        <div class="knowledge-icon">💾</div>
+        <div class="knowledge-title">File Systems &amp; Storage</div>
+        <p class="knowledge-desc">FAT, NTFS, APFS, ext4 internals. How data is written, deleted, recovered, and what actually happens at the block level.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;" class="reveal">
+      <a href="pages/knowledge.html" class="btn btn-ghost">Explore knowledge base →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── RECENT WRITING ─────────────────────────── -->
+<section class="section">
+  <div class="section-label reveal">Writing</div>
+  <h2 class="section-title reveal">Notes &amp; deep dives</h2>
+  <p class="section-subtitle reveal">Technical writing on systems, tooling, and things I've found interesting enough to document properly.</p>
+
+  <div class="posts-list reveal">
+    <div class="post-item" onclick="location='pages/writing.html'">
+      <div class="post-date">2025-03</div>
+      <div>
+        <div class="post-title">RAM acquisition on Linux and Windows — a practical comparison</div>
+      </div>
+      <span class="post-tag systems">systems</span>
+    </div>
+    <div class="post-item" onclick="location='pages/writing.html'">
+      <div class="post-date">2025-02</div>
+      <div>
+        <div class="post-title">How iOS stores WiFi credentials — and what that tells you</div>
+      </div>
+      <span class="post-tag tools">mobile</span>
+    </div>
+    <div class="post-item" onclick="location='pages/writing.html'">
+      <div class="post-date">2025-01</div>
+      <div>
+        <div class="post-title">Building a Selenium scraper that doesn't get banned</div>
+      </div>
+      <span class="post-tag python">python</span>
+    </div>
+    <div class="post-item" onclick="location='pages/writing.html'">
+      <div class="post-date">2024-12</div>
+      <div>
+        <div class="post-title">VeraCrypt internals: what full-disk encryption actually does</div>
+      </div>
+      <span class="post-tag systems">systems</span>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem;text-align:right;" class="reveal">
+    <a href="pages/writing.html" class="btn btn-ghost btn-sm">All posts →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-copy">© 2025 <span>Terje Gabrielsen</span> · Tromsø, Norway</div>
+  <div class="footer-links">
+    <a href="https://github.com/tergab" target="_blank" rel="noopener">GitHub</a>
+    <a href="pages/projects.html">Projects</a>
+    <a href="pages/contact.html">Contact</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
